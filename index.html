@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <script defer src="quiz.js"></script> <!-- Include an external JavaScript file -->
+    <link rel="stylesheet" href="quiz.css"> <!-- Include an external CSS file -->
+</head>
+<body>
+    <div id="intro">
+        <h1>Welcome to my Quiz</h1>
+        <h2 id="headerText"> State your name and take the test below to see how much you know in general.</h2>
+    </div>
+
+    <div id="greetingInput">
+        <input id="userName"> <!-- Input field to enter the user's name -->
+        <br> <br>
+        <button onclick="greeting()">Submit</button> <!-- Button to trigger the 'greeting' function on click -->
+    </div>
+
+    <!-- Internal CSS styles -->
+    <style>
+        #intro {text-align: center; color: floralwhite; font-size: 15px }
+        #greetingInput {text-align:center; color: floralwhite;}
+        body {background-color:#762eb6;}
+    </style>
+
+    <!-- JavaScript code begins -->
+    <script>
+        let userName = document.querySelector("#userName"); // Select the input element
+        let headerText = document.querySelector("#headerText");
+        let greetingInput = document.querySelector("#greetingInput");
+
+        quiz.style.display = "none"; // Hide an element with the ID 'quiz'
+
+        function greeting() {
+            headerText.innerHTML = " "; // Clear any previous content
+            headerText.innerHTML = "Hello " + userName.value + ", welcome to School Trivia. You have 2 minutes to answer all 6 questions correctly.";
+            greetingInput.style.display = "none"; // Hide the greeting input section
+        }
+    </script>
+
+    <!-- HTML content continues -->
+    <div class="container">
+        <div class="quiz-box">
+            <div id="quiz">
+                <h1>General quiz </h1>
+                <div class="quiz-header">
+                <p id="scoreBox"> SCORE : 0</p>
+                <p id="count-down">2</p>
+            </div>
+
+            <div id="question-container" class="hide"> <!-- A container for displaying quiz questions -->
+                <div id="question">6 Question Quiz</div> <!-- Display the current question -->
+                <div id="answer-buttons" class="btn-grid"> <!-- Container for answer buttons -->
+
+                    <!-- Answer buttons -->
+                    <button class="btn">Answer 1</button>
+                    <button class="btn">Answer 2</button>
+                    <button class="btn">Answer 3</button>
+                    <button class="btn">Answer 4</button>
+                    <button class="btn">Answer 5</button>
+                    <button class="btn">Answer 6</button>
+                    
+                </div>
+            </div>
+
+            <div class="controls"> <!-- Controls for the quiz -->
+                <button id="start-btn" class="start-btn btn">START</button> <!-- Button to start the quiz -->
+                <button id="next-btn" class="next-btn btn hide">next</button> <!-- Button to move to the next question (initially hidden) -->
+            </div>
+
+            <hr>
+            <footer>
+                <p>Good Luck</p> <!-- Footer message -->
+            </footer>
+        </div>
+    </div>
+</div>
+</body>
